@@ -106,6 +106,9 @@ No muy efectivo | 1 | x0.5
 Neutral | 2 | x1.0
 Muy efectivo | 3 | x2.0
 
+Basandonos en la siguiente tabla de tipos: 
+![Type Chart](../../img/typechart.png)
+
 ### Método `getDamage`
 
 ### Método `start`
