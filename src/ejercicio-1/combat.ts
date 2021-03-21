@@ -7,7 +7,6 @@ export class Combat {
 
   typeChart(typeA: number, typeB: number): number {
     /*
-    No effect = 0
     Not very effective = 1
     Normal = 2
     Super-effective = 3
