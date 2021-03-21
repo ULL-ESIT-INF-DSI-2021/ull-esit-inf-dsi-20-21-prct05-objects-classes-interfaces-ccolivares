@@ -282,7 +282,7 @@ combat.start();
 
 Comprobaremos el funcionamiento de nuestro programa y podemos observar como se realizan los combates: 
 
-
+![Ejecución](../../img/ejec.png)
 
 # Conclusiones
 
