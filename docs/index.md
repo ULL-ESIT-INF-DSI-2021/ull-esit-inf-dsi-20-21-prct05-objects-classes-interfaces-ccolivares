@@ -286,6 +286,11 @@ Comprobaremos el funcionamiento de nuestro programa y podemos observar como se r
 
 ![Ejecución](img/ejec.png)
 
+## Ejercicio 2
+
+El ejercicio
+
+
 # Conclusiones
 
 
