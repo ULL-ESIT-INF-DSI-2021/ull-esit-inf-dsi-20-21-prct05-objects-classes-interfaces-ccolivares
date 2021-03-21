@@ -3,13 +3,8 @@ console.log("Holaa soy el sistema de combate")
 import {Pokemon} from "./pokemon"
 
 export class Combat {
-  private pokemon_A: Pokemon;
-  private pokemon_B: Pokemon;
-  private role: string;
 
-  constructor (pokemon_A: Pokemon, pokemon_B: Pokemon){
-    this.pokemon_A = pokemon_A;
-    this.pokemon_B = pokemon_B;
+  constructor (private pokemon_A: Pokemon, private pokemon_B: Pokemon){
   }
 
   typeChart(typeA: number, typeB: number): number {
@@ -63,34 +58,65 @@ export class Combat {
     return damage;
   }
   
-  start(pokemon_A: Pokemon, pokemon_B: Pokemon) {
+  start() {
 
-    let effect_A: number = this.typeChart(pokemon_A.getType(), pokemon_B.getType())
-    let effect_B: number = this.typeChart(pokemon_B.getType(), pokemon_A.getType())
+    let effect_A: number = this.typeChart(this.pokemon_A.getType(), this.pokemon_B.getType())
+    let effect_B: number = this.typeChart(this.pokemon_B.getType(), this.pokemon_A.getType())
 
-    let HP_A: number = pokemon_A.getHP();
-    let HP_B: number = pokemon_B.getHP();
+    let HP_A: number = this.pokemon_A.getHP();
+    let HP_B: number = this.pokemon_B.getHP();
 
     let damage: number;
 
     
-    if (pokemon_A.getSpeed() > pokemon_B.getSpeed()) {
+    if (this.pokemon_A.getSpeed() > this.pokemon_B.getSpeed()) {
+
+      console.log(`${this.pokemon_A.getName()} atacará primero!`);
+      console.log("--------------------------------------------------------------------------------------------");
 
       let damage: number;
       
-      while (HP_A > 0 && HP_B > 0) { 
-        HP_B = HP_B - this.getDamage(pokemon_A.getAttack(), pokemon_B.getDefense(), effect_A);
-        HP_A = HP_A - this.getDamage(pokemon_B.getAttack(), pokemon_A.getDefense(), effect_B);
+      while (HP_A > 0 && HP_B > 0) {
+
+        damage = this.getDamage(this.pokemon_A.getAttack(), this.pokemon_B.getDefense(), effect_A);
+        HP_B = HP_B - damage;
+
+        console.log(`${this.pokemon_A.getName()} ataca a ${this.pokemon_B.getName()} con ${damage}p de daño!`);
+        console.log(`${this.pokemon_B.getName()} ahora tiene ${HP_B} de vida`);
+        console.log("--------------------------------------------------------------------------------------------");
+
+        damage = this.getDamage(this.pokemon_B.getAttack(), this.pokemon_A.getDefense(), effect_A);
+        HP_A = HP_A - damage;
+
+        console.log(`${this.pokemon_B.getName()} ataca a ${this.pokemon_A.getName()} con ${damage}p de daño!`);
+        console.log(`${this.pokemon_A.getName()} ahora tiene ${HP_A} de vida`);
+        console.log("--------------------------------------------------------------------------------------------");
+        
+
       }
     }
 
-    if (pokemon_B.getSpeed() > pokemon_A.getSpeed()) {
+    if (this.pokemon_B.getSpeed() > this.pokemon_A.getSpeed()) {
+
+      console.log(`${this.pokemon_B.getName()} atacará primero!`);
       
       let damage: number;
       
       while (HP_A > 0 && HP_B > 0) { 
-        HP_A = HP_A - this.getDamage(pokemon_B.getAttack(), pokemon_A.getDefense(), effect_B);
-        HP_B = HP_B - this.getDamage(pokemon_A.getAttack(), pokemon_B.getDefense(), effect_A);
+
+        damage = this.getDamage(this.pokemon_B.getAttack(), this.pokemon_A.getDefense(), effect_A);
+        HP_A = HP_A - damage;
+
+        console.log(`${this.pokemon_B.getName()} ataca a ${this.pokemon_A.getName()} con ${damage}p de daño!`);
+        console.log(`${this.pokemon_A.getName()} ahora tiene ${HP_A} de vida`);
+        console.log("--------------------------------------------------------------------------------------------");
+
+        damage = this.getDamage(this.pokemon_A.getAttack(), this.pokemon_B.getDefense(), effect_A);
+        HP_B = HP_B - damage;
+
+        console.log(`${this.pokemon_A.getName()} ataca a ${this.pokemon_B.getName()} con ${damage}p de daño!`);
+        console.log(`${this.pokemon_B.getName()} ahora tiene ${HP_B} de vida`);
+        console.log("--------------------------------------------------------------------------------------------");
       }
     }
   }
