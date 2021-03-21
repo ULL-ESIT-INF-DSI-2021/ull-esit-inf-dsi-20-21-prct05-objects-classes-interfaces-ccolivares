@@ -107,7 +107,7 @@ Neutral | 2 | x1.0
 Muy efectivo | 3 | x2.0
 
 Basandonos en la siguiente tabla de tipos: 
-![Type Chart](../img/typechart.png)
+![Type Chart](img/typechart.png)
 
 Resulta el siguiente código: 
 ```typescript
