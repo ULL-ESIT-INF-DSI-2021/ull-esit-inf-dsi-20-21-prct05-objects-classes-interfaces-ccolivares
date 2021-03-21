@@ -19,7 +19,7 @@ export class BibliographicManager {
       let author: string = "";
 
       article.author.forEach((authors) => {
-        author += authors
+        author += authors.authorName
       });
 
       let editorial: string = article.editorial;

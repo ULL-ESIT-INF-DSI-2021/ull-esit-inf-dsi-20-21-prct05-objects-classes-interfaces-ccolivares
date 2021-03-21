@@ -288,7 +288,50 @@ Comprobaremos el funcionamiento de nuestro programa y podemos observar como se r
 
 ## Ejercicio 2
 
-El ejercicio
+Nuestro ejercicio consistirá en dos clases `Article` (que se encargará de almacenar la información de los artículos y traducir a formato APA) y `BibliographicManager` (Que se encarga de almacenar todos los objetos `article`, escribirlos en forma de tabla y filtrar por palabras la información de los mismos)
+
+Comenzaremos analizando la clase `article` que almacenará la información de la siguiente manera: 
+```typescript
+
+export class Article {
+
+  constructor (public title: string, public author: Author[], public keywords: string[],
+    public abstract: string, public date: string, public editorial: string, 
+    private mentions: number){}
+}
+```
+
+Para que nuestros artículos se muestren en formato APA para revista electrónica debemos seguir el siguiente formato:
+```
+Herbst-Damn, K. L. y Kulik, J. A. (2005). Volunteer support, marital status, and the survival times of terminally ill patients. Health Psychology, 24, 225-229.
+}
+```
+
+Analizando esta información que nos da la siguiente [página](https://biblioguias.uam.es/citar/estilo_apa) realizamos un método para nuestra clase `article` tal que: 
+```typescript
+writeInAPA(): string{
+  return `${this.author}. (${this.date}). ${this.title}. ${this.editorial}.`;
+}
+```
+
+Seguiremos analizando la clase `BibliographicManager` con sus métodos.
+
+### Método `writeTable`
+
+Este método se encargará simplemente de formar una tabla con el método `console.table()`:
+```typescript
+writeTable() {
+    console.table(this.articles, ["title", "date"]);
+  }
+```
+
+### Método `writeFilter`
+
+Este método realizará una búsqueda de la palabra indicada entre los articulos que tenemos almacenados en el vector de articulos (articles: Article[]) de la clase `BibliographicManager`, buscará concretamente en los campos de información referidos a el autor, la editorial, las palabras clave y la fecha.
+
+Para ello en primer lugar realizaremos una simplificación de todos estos parametros para que todos sean de tipo `string`, en el caso de los autores al ser un tipo de dato aparte que contiene dos `strings` realizaremos un bucle forEach() y haremos concatenaciones de las cadenas referidas a los nombres de los autores, por lo tanto todo quedará resumido a una única cadena con todos los nombres de los autores, esto nos permitirá filtrar mejor.
+
+Nos encontramos con un problema similar a la hora de analizar las palabras clave 
 
 
 # Conclusiones
@@ -302,4 +345,5 @@ El ejercicio
 - [Pokedex Database](https://pokemondb.net/pokedex/all)
 - [Pokemon Type Chart](https://pokemondb.net/type)
 - [Arrays multidimensionales](https://www.tutorialspoint.com/typescript/typescript_multi_dimensional_arrays.htm)
+- [Formato APA](https://biblioguias.uam.es/citar/estilo_apa)
 - [Essential TypeScript: From Beginner to Pro](https://www.oreilly.com/library/view/essential-typescript-from/9781484249796/html/Part_1.xhtml)
