@@ -4,7 +4,7 @@ import { Combat } from "./combat"
 let Pokedex: Pokemon[] = [];
 
 enum types {normal, fire, water, electric, grass, ice, fighting, poison, ground, flying,
-  psychic, bug, rock, ghost, dragon, dark, steel, fairy}
+            psychic, bug, rock, ghost, dragon, dark, steel, fairy}
   
 /*
 Peso = kilogramos
