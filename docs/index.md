@@ -109,6 +109,8 @@ Muy efectivo | 3 | x2.0
 Basandonos en la siguiente tabla de tipos: 
 ![Type Chart](img/typechart.png)
 
+he cambiado
+
 Resulta el siguiente código: 
 ```typescript
 typeChart(typeA: number, typeB: number): number {
