@@ -329,10 +329,67 @@ writeTable() {
 
 Este método realizará una búsqueda de la palabra indicada entre los articulos que tenemos almacenados en el vector de articulos (articles: Article[]) de la clase `BibliographicManager`, buscará concretamente en los campos de información referidos a el autor, la editorial, las palabras clave y la fecha.
 
-Para ello en primer lugar realizaremos una simplificación de todos estos parametros para que todos sean de tipo `string`, en el caso de los autores al ser un tipo de dato aparte que contiene dos `strings` realizaremos un bucle forEach() y haremos concatenaciones de las cadenas referidas a los nombres de los autores, por lo tanto todo quedará resumido a una única cadena con todos los nombres de los autores, esto nos permitirá filtrar mejor.
+Para ello en primer lugar realizaremos una simplificación de todos estos parametros para que todos sean de tipo `string`, en el caso de los autores al ser un tipo de dato aparte que contiene dos `strings` realizaremos un bucle `forEach()` y haremos concatenaciones de las cadenas referidas a los nombres de los autores, por lo tanto todo quedará resumido a una única cadena con todos los nombres de los autores, esto nos permitirá filtrar mejor.
 
-Nos encontramos con un problema similar a la hora de analizar las palabras clave 
+Nos encontramos con un problema similar a la hora de analizar las palabras clave, ya que es un vector de `strings` y no una `string` como tal, para ello nos apoyaremos en el método `join()`, al utilizarlo podremos concatenar los elementos del vector de `strings` que compone las palabras clave y resumirlas todas en una única `string`.
 
+```typescript
+article.author.forEach((authors) => {
+  author += authors.authorName
+});
+
+let editorial: string = article.editorial;
+
+let date: string = article.date;
+
+let keywords: string = article.keywords.join("");
+```
+
+Para poder realizar el filtrado recorreremos nuestro vector de artículos de la clase `BibliographicManager`, en cada iteracion debemos realizar las simplificaciones indicadas anteriormente, además inicializaremos una variable booleana en principio falsa que nos servirá como un flag que se activará cuando encuentre nuestra palabra indicada para filtrar en alguno de los artículos, solo cuando este flag este activado se añadirá (utilizando el método `push()`)el artículo a un vector auxiliar que crearemos el cual contendrá la lista de artículos que contienen la palabra a filtrar.
+
+```typescript
+wordFilter(key: string) {
+
+  let filteredArticles: Article[] = [];
+  
+  this.articles.forEach((article) => {
+    
+    let searched: boolean = false;
+    let author: string = "";
+
+    article.author.forEach((authors) => {
+      author += authors.authorName
+    });
+
+    let editorial: string = article.editorial;
+
+    let date: string = article.date;
+
+    let keywords: string = article.keywords.join("");
+
+    if (author.search(key) != -1) {
+      searched = true;
+    }
+
+    if (editorial.search(key) != -1) {
+      searched = true;
+    }
+
+    if (date.search(key) != -1) {
+      searched = true;
+    }
+
+    if (keywords.search(key) != -1) {
+      searched = true;
+    }
+
+    if (searched) {
+      filteredArticles.push(article);
+    }
+
+  });
+}
+```
 
 # Conclusiones
 
