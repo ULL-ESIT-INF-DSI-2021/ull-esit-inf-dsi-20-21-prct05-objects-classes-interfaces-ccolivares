@@ -14,11 +14,41 @@ Se tomarán en cuenta para el combate estadísticas como el ataque y la defensa 
 
 # Desarrollo de la práctica
 
-
 ## Ejercicio 1
 
 ### Introducción
 
+Para comenzar la descripción de la estructura de nuestro ejercicio hablaremos de las clases `pokemon` y `combat`.
+
+Nuestra clase `pokemon` crea objetos con los atributos correspondientes al perfil de nuestro _Pokémon_, los cuales seraán los siguientes: 
+
+- Nombre del _Pokémon_ `(name)`
+- Peso `(weight)`
+- Altura `(height)`
+- Tipo `(type)`
+  - Normal `(normal)`
+  - Fuego `(fire)`
+  - Agua `(water)`
+  - Eléctrico `(electric)`
+  - Planta `(grass)`
+  - Hielo `(ice)`
+  - Lucha `(fighting)`
+  - Veneno `(poison)`
+  - Tierra `(ground)`
+  - Volador `(flying)`
+  - Psíquico `(psychic)`
+  - Bicho `(bug)`
+  - Roca `(rock)`
+  - Fantasma `(ghost)`
+  - Dragón `(dragon)`
+  - Siniestro `(dark)`
+  - Acero `(steel)`
+  - Hada `(fairy)`
+- Ataque `(attack)`
+- Defensa `(defense)`
+- Velocidad `(speed)`
+- Vida `(HP)`
+- 
 ### Desarrollo
 
 ## Ejercicio 2
