@@ -16,8 +16,6 @@ Se tomarán en cuenta para el combate estadísticas como el ataque y la defensa 
 
 ## Ejercicio 1
 
-### Introducción
-
 Para comenzar la descripción de la estructura de nuestro ejercicio hablaremos de las clases `pokemon` y `combat`.
 
 Nuestra clase `pokemon` crea objetos con los atributos correspondientes al perfil de nuestro _Pokémon_, los cuales seraán los siguientes: 
@@ -48,8 +46,51 @@ Nuestra clase `pokemon` crea objetos con los atributos correspondientes al perfi
 - Defensa `(defense)`
 - Velocidad `(speed)`
 - Vida `(HP)`
-- 
-### Desarrollo
+
+En nuestro caso los atributos de la clase _Pokémon_ que hemos mencionado están declarados como atributos privados, por lo tanto debemos implementar dentro de nuestra clase una serie de _"getters"_ para poder acceder a todos los atributos.
+
+Podemos apreciar la implementación de lo explicado en las siguientes líneas: 
+```typescript
+export class Pokemon {
+
+  constructor(private name: string, private weight: number, private height: number, 
+              private type: number, private attack: number, private defense: number, 
+              private speed: number, private HP: number){
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  getWeight() {
+    return this.weight;
+  }
+  
+  getHeight() {
+    return this.height;
+  }
+  
+  getType() {
+    return this.type;
+  }
+
+  getAttack() {
+    return this.attack;
+  }
+
+  getDefense() {
+    return this.defense;
+  }
+
+  getSpeed() {
+    return this.speed;
+  }
+
+  getHP() {
+    return this.HP;
+  }
+}
+```
 
 ## Ejercicio 2
 
