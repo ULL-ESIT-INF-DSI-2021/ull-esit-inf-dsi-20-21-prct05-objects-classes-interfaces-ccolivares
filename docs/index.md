@@ -92,12 +92,23 @@ export class Pokemon {
 }
 ```
 
-## Ejercicio 2
 
-### Introducción
+Continuaremos hablando de la clase `combat` que recibirá a los participantes del combate y se encargará de toda la ejecución del combate en su totalidad. Para hablar de ella separaremos sus métodos:
 
-### Desarrollo
+### Método `typeChart`
 
+Este método ha sido diseñado con el objetivo de poder realizar la comparación de los 18 tipos de _Pokémon_ de una manera sencilla. Hemos utilizado un array multidimensional que hemos rellenado de la siguiente forma:
+
+
+Efecto | Valor | Multiplicador
+------------ | ------------- | -------------
+No muy efectivo | 1 | x0.5
+Neutral | 2 | x1.0
+Muy efectivo | 3 | x2.0
+
+### Método `getDamage`
+
+### Método `start`
 
 # Conclusiones
 
