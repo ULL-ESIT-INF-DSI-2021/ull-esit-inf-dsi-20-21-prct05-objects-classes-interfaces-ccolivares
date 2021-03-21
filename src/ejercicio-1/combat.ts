@@ -89,8 +89,6 @@ export class Combat {
 
     let HP_A: number = this.pokemon_A.getHP();
     let HP_B: number = this.pokemon_B.getHP();
-
-    let damage: number;
     
     if (this.pokemon_A.getSpeed() > this.pokemon_B.getSpeed()) {
 
@@ -118,10 +116,6 @@ export class Combat {
         console.log(`${this.pokemon_B.getName()} ataca a ${this.pokemon_A.getName()} con ${damage}p de daño!`);
         console.log(`${this.pokemon_A.getName()} ahora tiene ${HP_A}p de vida`);
         console.log("--------------------------------------------------------------------------------------------");
-
-        if (HP_A <= 0) {
-          break;
-        }
         
       }
     }
@@ -153,10 +147,6 @@ export class Combat {
         console.log(`${this.pokemon_A.getName()} ataca a ${this.pokemon_B.getName()} con ${damage}p de daño!`);
         console.log(`${this.pokemon_B.getName()} ahora tiene ${HP_B}p de vida`);
         console.log("--------------------------------------------------------------------------------------------");
-
-        if (HP_B <= 0) {
-          break;
-        }
 
       }
     }
