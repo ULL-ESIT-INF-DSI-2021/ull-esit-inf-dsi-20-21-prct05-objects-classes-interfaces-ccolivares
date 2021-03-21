@@ -310,7 +310,13 @@ Herbst-Damn, K. L. y Kulik, J. A. (2005). Volunteer support, marital status, and
 Analizando esta información que nos da la siguiente [página](https://biblioguias.uam.es/citar/estilo_apa) realizamos un método para nuestra clase `article` tal que: 
 ```typescript
 writeInAPA(): string{
-  return `${this.author}. (${this.date}). ${this.title}. ${this.editorial}.`;
+  let authorstring: string = "";
+
+    this.author.forEach((authors) => {
+      authorstring += authors.authorName
+    });
+
+    return `${authorstring}. (${this.date}). ${this.title}. ${this.editorial}.`;
 }
 ```
 
@@ -391,8 +397,91 @@ wordFilter(key: string) {
 }
 ```
 
+### Método `exportFilteredAPA`
+
+Este método realizará una conversión simple de nuestro vector de artículos ya filtrado y los almacenará en un vector de `strings` auxiliar que tendrá la lista de artículos filtrados traducidos en formato APA, lo realizaremos de la siguiente forma:
+
+```typescript
+exportFilteredAPA(filteredArticles: Article[]): string[] {
+  let APA: string[] = [];
+
+  filteredArticles.forEach((article) => {
+    APA.push(article.writeInAPA());
+  });
+
+  return APA;
+
+}
+```
+Para finalizar en nuestro archivo `index` inicializaremos los artículos y crearemos los objetos necesarios para el correcto funcionamiento de nuestra práctica. Aquí podemos ver un ejemplo de la introducción de datos de uno de los artículos:
+
+```typescript
+let title1: string = `A modified descent method-based heuristic for binary quadratic knapsack problems with conflict graphs`;
+
+let authors1: Author[] = [];
+
+let author11: Author = {
+  authorName: "Isma Dahmani",
+  email: "dahmani99@gmail.com"
+};
+
+let author12: Author = {
+  authorName: "Mhand Hifi",
+  email: "mhand.hifi.mail@gmail.com"
+};
+
+authors1.push(author11);
+authors1.push(author12);
+
+let keywords1: string[] = ["descent", "heuristic", "knapsack", "optimization"];
+
+let abstract1: string = `The knapsack problem arises in a variety of real world applications, 
+including flexible manufacturing systems, railway stations, hydrological studies and others. 
+In this paper, we propose a descent method-based heuristic for tackling a special knapsack 
+problem: the binary quadratic knapsack with conflict graphs. The proposed method combines (i) 
+an intensification search with a descent method for enhancing the accuracy of the solutions 
+and (ii) a diversification strategy which is used for enlarging the search space. The method 
+uses degrading and re-optimization strategies in order to reach a series of diversified 
+solutions. The performance of the proposed method is evaluated on benchmark instances taken 
+from the literature, where its achieved results are compared to those reached by both GLPK 
+solver and the best method available in the literature. The method seems very competitive, 
+where it is able to achieve 37 new lower bounds.`;
+
+let date1: string = "17/07/2019";
+
+let editorial1: string = "Annals of Operations Research"
+
+let mentions1: number = 2;
+
+let article1: Article = new Article(title1, authors1, keywords1, abstract1, date1, editorial1, mentions1);
+```
+
+Nos quedaría inicializar los objetos y comprobar el correcto funcionamiento de los métodos:
+
+```typescript
+//Crear el vector de articulos que va en el gestor bibliografico
+let biblioArticles: Article[] = [];
+
+//Insertamos articulos 
+biblioArticles.push(article1);
+biblioArticles.push(article2);
+
+//Creamos el objeto tipo bibliographicManager
+let bibliographicManager: BibliographicManager = new BibliographicManager(biblioArticles);
+
+//Ejecutamos el método `writeTable` para comprobar su funcionamiento
+bibliographicManager.writeTable();
+
+//filtramos por la palabra "bilevel"
+bibliographicManager.wordFilter("bilevel");
+
+//Convertimos uno de los articulos a formato APA
+article1.writeInAPA();
+```
+
 # Conclusiones
 
+En esta práctica hemos trabajado y mejorado nuestros conocimientos sobre objetos, clases e interfaces de TypeScript. El hecho de enfrentarnos a diversas situaciones nos hace entrenar nuestra lógica e interesarnos más por la programación. Se nos plantean casos realmente útiles y aplicables a nuestro ámbito profesional. 
 
 # Bibliografía
 

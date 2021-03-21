@@ -11,6 +11,13 @@ export class Article {
 
 
   writeInAPA(): string{
-    return `${this.author}. (${this.date}). ${this.title}. ${this.editorial}.`;
+
+    let authorstring: string = "";
+
+    this.author.forEach((authors) => {
+      authorstring += authors.authorName
+    });
+
+    return `${authorstring}. (${this.date}). ${this.title}. ${this.editorial}.`;
   }
 }
