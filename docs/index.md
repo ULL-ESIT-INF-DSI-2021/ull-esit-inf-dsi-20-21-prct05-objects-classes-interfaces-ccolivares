@@ -141,10 +141,45 @@ typeChart(typeA: number, typeB: number): number {
 Nuestra función `typeChart` recibe los tipos de cada pokemon que estan asignados cada uno a un número distinto según la siguiente lista enumerada:
 
 ```typescript
-
+enum types {normal, fire, water, electric, grass, ice, fighting, poison, ground, flying,
+            psychic, bug, rock, ghost, dragon, dark, steel, fairy}
+  
 ```
 
+Por lo tanto simplemente devolviendo el valor que encuentra nuestro vector al proporcionarle el número correspondiente al tipo del atacante (columnas) y el correspondiente al tipo del defensor (filas) encontrará el efecto que hace ese ataque en forma de valor numérico siguiendo la tabla indicada anteriormente. Más adelante este valor se interpretará para unirlo a la fórmula de daño. 
+
 ### Método `getDamage`
+
+Este método se encargará de hacer los cálculos de daño de cada ataque ya conociendo la efectividad del mismo. Recibirá por lo tanto el valor del ataque del _Pokémon_ atacante y el valor de la defensa del _Pokémon_ defensor, además de la efectividad de ese ataque en concreto. 
+
+En primer lugar filtraremos e interpretaremos la efectividad, según el valor que tenga aplicaremos un multiplicador u otro (basandonos en la tabla anteriormente mencionada). Seguiremos la siguiente fórmula:
+
+```typescript
+daño = 50 * (ataque / defensa) * eficiencia
+```
+
+Por lo tanto nuestro código se vería de la siguiente manera: 
+```typescript
+getDamage(attack: number, defense: number, effect:number): number {
+
+    let damage: number = 0; 
+
+    if (effect == 1) {
+      damage = 50 * (attack / defense) * 0.5;
+    }
+
+    if (effect == 2) {
+      damage = 50 * (attack / defense) * 1;
+    }
+
+    if (effect == 3) {
+      damage = 50 * (attack / defense) * 2;
+    }
+    return Math.round(damage);
+  }
+```
+El uso del método `Math.round()` nos sirve para devolver el valor obtenido sin comas decimales.
+
 
 ### Método `start`
 
