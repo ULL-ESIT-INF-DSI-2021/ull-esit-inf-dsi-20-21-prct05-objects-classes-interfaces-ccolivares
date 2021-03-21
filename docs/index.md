@@ -1,18 +1,29 @@
-## Introducción
+# Introducción
 
 
-## Objetivos
+# Objetivos
 
 
-## Desarrollo de la práctica
-
-### Ejercicio 1_______________________________________________________
+# Desarrollo de la práctica
 
 
-## Conclusiones
+## Ejercicio 1
+
+### Introducción
+
+### Desarrollo
+
+## Ejercicio 2
+
+### Introducción
+
+### Desarrollo
 
 
-## Bibliografía
+# Conclusiones
+
+
+# Bibliografía
 
 - [Guión de la práctica 5](https://ull-esit-inf-dsi-2021.github.io/prct05-objects-classes-interfaces/)
 - [Guión de la práctica 3](https://ull-esit-inf-dsi-2021.github.io/prct03-types-functions/)
