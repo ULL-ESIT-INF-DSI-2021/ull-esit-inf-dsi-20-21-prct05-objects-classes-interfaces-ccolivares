@@ -20,32 +20,32 @@ Para comenzar la descripción de la estructura de nuestro ejercicio hablaremos d
 
 Nuestra clase `pokemon` crea objetos con los atributos correspondientes al perfil de nuestro _Pokémon_, los cuales seraán los siguientes: 
 
-- Nombre del _Pokémon_ `(name)`
-- Peso `(weight)`
-- Altura `(height)`
-- Tipo `(type)`
-  - Normal `(normal)`
-  - Fuego `(fire)`
-  - Agua `(water)`
-  - Eléctrico `(electric)`
-  - Planta `(grass)`
-  - Hielo `(ice)`
-  - Lucha `(fighting)`
-  - Veneno `(poison)`
-  - Tierra `(ground)`
-  - Volador `(flying)`
-  - Psíquico `(psychic)`
-  - Bicho `(bug)`
-  - Roca `(rock)`
-  - Fantasma `(ghost)`
-  - Dragón `(dragon)`
-  - Siniestro `(dark)`
-  - Acero `(steel)`
-  - Hada `(fairy)`
-- Ataque `(attack)`
-- Defensa `(defense)`
-- Velocidad `(speed)`
-- Vida `(HP)`
+- Nombre del _Pokémon_ _(name)_
+- Peso _(weight)_
+- Altura _(height)_
+- Tipo _(type)_
+  - Normal _(normal)_
+  - Fuego _(fire)_
+  - Agua _(water)_
+  - Eléctrico _(electric)_
+  - Planta _(grass)_
+  - Hielo _(ice)_
+  - Lucha _(fighting)_
+  - Veneno _(poison)_
+  - Tierra _(ground)_
+  - Volador _(flying)_
+  - Psíquico _(psychic)_
+  - Bicho _(bug)_
+  - Roca _(rock)_
+  - Fantasma _(ghost)_
+  - Dragón _(dragon)_
+  - Siniestro _(dark)_
+  - Acero _(steel)_
+  - Hada _(fairy)_
+- Ataque _(attack)_
+- Defensa _(defense)_
+- Velocidad _(speed)_
+- Vida _(HP)_
 
 En nuestro caso los atributos de la clase _Pokémon_ que hemos mencionado están declarados como atributos privados, por lo tanto debemos implementar dentro de nuestra clase una serie de _"getters"_ para poder acceder a todos los atributos.
 
